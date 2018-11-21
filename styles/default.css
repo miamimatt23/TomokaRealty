@@ -1,0 +1,51 @@
+body{margin: 0px;}
+.container{margin: 0px auto; width: 1260px; overflow: hidden;}
+.width-100{width: 100%;}
+.inline-block{display: inline-block;}
+.white, a.white{color: #fff;}
+.float-right{float: right;}
+.h-underline{text-decoration: none;} .h-underline:hover{text-decoration: underline;}
+.no-underline, .no-underline:hover{text-decoration: none;}
+.semibold{font-weight: 600;}
+.middle{vertical-align: middle;}
+.bold{font-weight: 700}
+.center{text-align: center}
+.right{text-align: right}
+.border-box{box-sizing: border-box;}
+.float-left{float: left;}
+.fluid{height: auto; width: auto; max-width: 100%;}
+.block{display: block}
+.black, a.black{color: #000;}
+.fixed{position: fixed}
+.margin-auto{margin: 0px auto;}
+.underline{text-decoration: underline;}
+.red, a.red{color: red}
+.left{text-align: left;}
+.no-overflow{overflow: visible;}
+.mobile, .mobile-inline-block{display: none;}
+.middle{vertical-align: middle}
+.italic{font-style: italic;}
+.top{vertical-align: top;}
+.light{font-weight: 400}
+
+
+
+@media only screen and (max-width: 1300px) {
+  .container{width: 989px;}
+}
+
+@media only screen and (max-width: 992px) {
+  .mobile-center{text-align: center}
+  .mobile-float-left{float: left}
+  .mobile-width-100{width: 100%}
+  .mobile-gold{color: #c5ab71}
+  .mobile-block{display: block}
+  .container{width: 100%;}
+  .mobile{display: block}
+  .mobile-inline-block{display: inline-block;}
+  .desktop{display: none;}
+}
+
+@media only screen and (max-device-width: 992px) and (orientation: landscape) {
+
+}

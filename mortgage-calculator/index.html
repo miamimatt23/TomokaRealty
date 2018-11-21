@@ -1,0 +1,112 @@
+<html>
+  <head>
+    <title>Tomoka Realty - Mortgage Calculator</title>
+    <link href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700" rel="stylesheet">
+    <link href="../styles/default.css" rel="stylesheet" type="text/css">
+    <link href="../styles/style.css" rel="stylesheet" type="text/css">
+    <style>
+    .content{background-image: url(../images/content_bg.jpg); padding: 85px 0px;}
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <img class="float-left block t-01" src="../images/logo.png">
+        <div class="float-right t-02">Call us at <a href="tel: 3863833573" class="black no-underline">(386) 383 - 3573</a></div>
+      </div>
+      <nav>
+        <div class="container">
+          <a class="inline-block white no-underline padding-left-zero t-03" href="../buy">Buy</a>
+          <a class="inline-block white no-underline t-03" href="../sell">Sell</a>
+          <a class="inline-block white no-underline t-03" href="../about-us">About Us</a>
+          <a class="inline-block white no-underline t-03" href="../contact">Contact</a>
+          <a class="inline-block white no-underline t-03" href="../rentals">Rentals</a>
+          <a class="inline-block white no-underline padding-right-zero t-03" href="../careers">Careers</a>
+        </div>
+      </nav>
+    </header>
+    <section class="content">
+      <div class="container border-box t-32">
+        <div class="green center t-33">Mortgage Calculator</div>
+        <div class="t-39 border-box inline-block">
+          <div class="t-34">Loan Amount ($)</div>
+          <input class="t-09 t-37" type="text" id="loan-amount">
+        </div>
+        <div class="t-39 border-box inline-block">
+          <div class="t-34">Term (Years)</div>
+          <input class="t-09 t-37" type="text" id="term">
+        </div>
+        <div class="t-39 border-box inline-block">
+          <div class="t-34">Interest Rate (%)</div>
+          <input class="t-09 t-37" type="text" id="interest-rate">
+        </div>
+        <div class="width-100 right t-42">
+          <div class="t-39 border-box inline-block">
+            <div class="left t-34">Tax</div>
+            <input class="t-09 t-37" type="text" id="tax">
+          </div>
+          <div class="t-39 border-box inline-block">
+            <div class="left t-34">Insurance</div>
+            <input class="t-09 t-37" type="text" id="insurance">
+          </div>
+        </div>
+        <div class="t-40">Total Paid: <span>$2,745.20</div>
+        <div class="t-40">Total Interest Paid: <span>$545.20</div>
+        <div class="t-40">Estimated Monthly Payment: <span>$22.88</div>
+        <div class="green t-41">** Estimated monthly payment is a starting point to help assist you with your home search.</div>
+        <div class="green t-41">To find out more about mortgage pre-qualification, <a class="green" href="#">CLICK HERE</a>.
+      </div>
+    </section>
+    <footer>
+      <div class="container">
+        <div class="inline-block top t-25">
+          <a class="inline-block width-100 t-24" href="..//"><img class="block fluid" src="../images/logo.png"></a>
+          <div class="width-100">
+            <img class="inline-block middle t-26" src="../images/footer_phone.png">
+            <a class="black h-underline middle t-27" href="tel: 3863833573">(386) 383 - 3573</a>
+          </div>
+          <div class="width-100">
+            <img class="inline-block middle t-26" src="../images/footer_email.png">
+            <a class="black h-underline middle t-27" href="mailto: info@tomokarealty.com">info@tomokarealty.com</a>
+          </div>
+          <div class="width-100">
+            <img class="inline-block middle t-26" src="../images/footer_location.png">
+            <a class="black h-underline middle t-27" href="#">Ormond Beach, FL</a>
+          </div>
+        </div>
+        <div class="inline-block border-box top t-28">
+          <a class="block green h-underline t-29" href="#">Buy</a>
+          <a class="block black h-underline t-30" href="#">Search Listings</a>
+          <a class="block black h-underline t-30" href="#">Mortgage Calculator</a>
+          <a class="block green h-underline t-29 t-31" href="#">Sell</a>
+          <a class="block black h-underline t-30" href="#">Recent Sales</a>
+          <a class="block black h-underline t-30" href="#">Find an Agent</a>
+        </div>
+        <div class="inline-block border-box top t-28">
+          <a class="block green h-underline t-29" href="#">About Us</a>
+          <a class="block black h-underline t-30" href="#">Agent Profiles</a>
+          <a class="block black h-underline t-30" href="#">About</a>
+          <a class="block black h-underline t-30" href="#">Testimonials</a>
+          <a class="block black h-underline t-30" href="#">Careers</a>
+          <a class="block black h-underline t-30" href="#">Rentals</a>
+          <a class="block black h-underline t-30" href="#">Contact</a>
+        </div>
+      </div>
+    </footer>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../scripts/script.js"></script>
+    <script>
+    $(document).ready(function(){
+      headerFormat();
+      footerFormat();
+      $("input").keyup(function(){
+        console.log(":"+!Number.isInteger(parseInt($("#tax").val())));
+        var monthlyPayment = calculateMortgage($("#loan-amount").val(), $("#interest-rate").val(), $("#term").val(), parseInt($("#tax").val()), $("#insurance").val());
+        var totalPaid = calculateTotalPaid(monthlyPayment, $("#term").val());
+        var interestPaid = calculateInterestPaid(totalPaid, $("#loan-amount").val(), $("#tax").val(), $(".#insurance").val());
+        console.log(interestPaid);
+      })
+    });
+    </script>
+  </body>
+</html>
